@@ -1,17 +1,9 @@
-import { Slot } from "expo-router";
-import { View, StyleSheet } from "react-native";
+import { Stack } from 'expo-router/stack';
 
 export default function Layout() {
   return (
-    <View style={styles.container}>
-      <Slot />
-    </View>
+    <Stack>
+      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+    </Stack>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-  },
-});
