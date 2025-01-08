@@ -5,7 +5,7 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
-import { getAllQuests, getAllUsers } from '@/firebase/firestore';
+// import { getAllQuests, getAllUsers } from '@/firebase/firestore';
 
 import { useColorScheme } from '@/components/useColorScheme';
 
@@ -40,8 +40,8 @@ export default function RootLayout() {
   }, [loaded]);
 
   useEffect(()=>{
-    const users=getAllQuests()
-    console.log(users)
+    // const users=getAllQuests()
+    // console.log(users)
   },[])
 
   if (!loaded) {
