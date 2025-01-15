@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, ScrollView, Image } from 'react-native';
+import { StyleSheet, ScrollView, Image, ImageBackground } from 'react-native';
 
 import { Text, View } from '@/components/Themed';
 
@@ -17,6 +17,7 @@ export default function AchievementsScreen() {
 
   return (
     <View style={styles.container}>
+      <ImageBackground source={require('../../assets/images/ach.jpg')} style={styles.container}>
       {/* Top Section: User Info (Image and Total Points) */}
       <View style={styles.header}>
         <Image source={{ uri: user.image }} style={styles.userImage} />
@@ -35,6 +36,7 @@ export default function AchievementsScreen() {
           </View>
         ))}
       </ScrollView>
+    </ImageBackground>
     </View>
   );
 }
@@ -47,12 +49,14 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row', // Aligning image and points horizontally
     alignItems: 'center',
-    padding: 20,
-    backgroundColor: '#ffffff', // Background for the top section
+    padding: 10,
+    backgroundColor: 'rgba(255, 255, 255, 0.1)', // Slightly transparent white background
+    backfaceVisibility: 'hidden',
     shadowColor: '#000',
-    shadowOpacity: 0.1,
-    shadowRadius: 5,
+    // shadowOpacity: 0.1,
+    // shadowRadius: 5,
     elevation: 5, // Add shadow for iOS and Android
+    borderRadius: 8,
   },
   userImage: {
     width: 60,
@@ -62,6 +66,8 @@ const styles = StyleSheet.create({
   },
   pointsContainer: {
     flex: 1,
+    backgroundColor: 'rgba(255, 255, 255, 0.1)', // Slightly transparent white background
+    backfaceVisibility: 'hidden',
   },
   pointsText: {
     fontSize: 18,

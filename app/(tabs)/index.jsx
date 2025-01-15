@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { FlatList, StyleSheet, View } from 'react-native';
+import { FlatList, ImageBackground, StyleSheet, View } from 'react-native';
 import { Card, Checkbox, Text, Button } from 'react-native-paper';
 
 export default function TabOneScreen() {
@@ -35,21 +35,21 @@ export default function TabOneScreen() {
   );
 
   return (
-    <View style={styles.container}>
+    <ImageBackground source={require('../../assets/images/home.jpg')} style={styles.container}>
       <FlatList
         data={quests}
         keyExtractor={(item) => item.id}
         renderItem={renderQuest}
         contentContainerStyle={styles.list}
       />
-    </View>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f7f9fc',
+    backgroundColor: 'black',
     padding: 10,
   },
   list: {
@@ -67,6 +67,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
+    fontFamily:'sans-serif',
     fontSize: 18,
     fontWeight: 'bold',
   },

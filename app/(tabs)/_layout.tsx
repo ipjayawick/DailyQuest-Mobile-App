@@ -13,7 +13,7 @@ function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>['name'];
   color: string;
 }) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
+  return <FontAwesome size={24} {...props} />;
 }
 
 export default function TabLayout() {
@@ -21,26 +21,48 @@ export default function TabLayout() {
 
   return (
     <Tabs
+
       screenOptions={{
-        tabBarActiveTintColor: '#A29BFE', // Soft pastel purple for active tab
-        tabBarInactiveTintColor: '#BDC3C7', // Light gray for inactive tabs
+        tabBarLabelPosition: 'beside-icon', // Show text beside icon
+        tabBarActiveTintColor: '#272320', // Active tab text color
+        tabBarInactiveTintColor: '#272320', // Inactive tab text color
+        tabBarActiveBackgroundColor: '#958574',
+        tabBarInactiveBackgroundColor: '#ead0b3',
         tabBarStyle: {
-          backgroundColor: '#ECF0F1', // Soft, light gray for tab bar background
+          backgroundColor: '#ead0b3', // Tab bar background
           borderTopWidth: 0,
-          paddingBottom: 5,
-          paddingTop: 5,
-          elevation: 5, // Adds a shadow effect for a soft lift
+          elevation: 5, // Adds shadow effect
         },
-        headerShown: useClientOnlyValue(false, true),
-      }}>
+        tabBarLabelStyle: {
+          fontWeight: 'bold', // Bold tab text
+          fontSize: 14, // Consistent text size
+        },
+        // tabBarItemStyle: {
+        //   flexDirection: 'row', // Align icon and text horizontally
+        //   alignItems: 'center', // Center items vertically
+        //   paddingHorizontal: 10, // Add spacing inside the tab items
+        // },
+        // tabBarIconStyle: {
+        //   marginRight: 10, // Add spacing between icon and text
+        // },
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
           title: 'Quests',
-          tabBarIcon: ({ color }) => <TabBarIcon name="th-list" color={color} />,
+          headerTitleStyle: {
+            fontFamily: 'SpaceMono',
+            fontSize: 28,
+            margin:'auto',
+            marginLeft:10
+          },
+          tabBarIcon: ({ color }) => (
+            <FontAwesome name="th-list" color={color} size={24} />
+          ),
           headerBackground: () => (
             <LinearGradient
-              colors={['#F0F4F8', '#A8DADC']} // Light gradient from white to soft blue
+              colors={['#ead0b3', '#bfaa93']} // Gradient for header background
               style={{ flex: 1 }}
             />
           ),
@@ -63,11 +85,19 @@ export default function TabLayout() {
       <Tabs.Screen
         name="achievements"
         options={{
+          headerTitleStyle: {
+            fontFamily: 'SpaceMono',
+            fontSize: 28,
+            margin:'auto',
+            marginLeft:10
+          },
           title: 'Achievements',
-          tabBarIcon: ({ color }) => <TabBarIcon name="trophy" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <FontAwesome name="trophy" color={color} size={24} />
+          ),
           headerBackground: () => (
             <LinearGradient
-              colors={['#F9E2AE', '#A8DADC']} // Soft golden to soft blue gradient
+              colors={['#ead0b3', '#bfaa93']} // Gradient for header background
               style={{ flex: 1 }}
             />
           ),
