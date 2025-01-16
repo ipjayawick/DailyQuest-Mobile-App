@@ -22,6 +22,23 @@ export const getAllQuests = async () => {
     return quests;
 };
 
+export const getAchievements = async () => {
+    const achievements = [];
+    const querySnapshot = await getDocs(collection(db, "achievements"));
+    querySnapshot.forEach((doc) => {
+        achievements.push(doc.data());
+    });
+    return achievements;
+}
+
+export const addQuestsToUser = async (quests) => {
+    const users = await getAllUsers();
+    users.forEach(user => {
+        user.quests = quests;
+    });
+    return users;
+}
+ 
 export const addUser = async (user) => {
     await addDoc(collection(db, "quests"), user);
 }
