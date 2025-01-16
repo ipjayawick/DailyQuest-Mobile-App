@@ -1,13 +1,12 @@
-
 import React, { useState } from 'react';
-import { FlatList, ImageBackground, StyleSheet, View } from 'react-native';
-import { Card, Checkbox, Text, Button } from 'react-native-paper';
+import { StyleSheet, ScrollView, ImageBackground, View } from 'react-native';
+import { Card, Checkbox, Text } from 'react-native-paper';
 
 export default function TabOneScreen() {
   const [quests, setQuests] = useState([
-    { id: '1', title: 'Quest 1', description: 'Explore the forest.', completed: false },
-    { id: '2', title: 'Quest 2', description: 'Find the hidden treasure.', completed: false },
-    { id: '3', title: 'Quest 3', description: 'Defeat the dragon.', completed: false },
+    { id: '1', title: 'Morning Walk', description: 'Take a 30-minute walk outdoors.', completed: false },
+    { id: '2', title: 'Read & Reflect', description: 'Read a chapter from a book and write a quick summary.', completed: false },
+    { id: '3', title: 'Hydration Goal', description: 'Drink 2 liters of water today.', completed: false },
   ]);
 
   const toggleCompletion = (id) => {
@@ -18,30 +17,27 @@ export default function TabOneScreen() {
     );
   };
 
-  const renderQuest = ({ item }) => (
-    <Card style={styles.card}>
-      <Card.Content>
+  const renderQuest = (item) => (
+    <Card style={styles.qCard} key={item.id}>
+      <Card.Content style={styles.cardContainer}>
         <View style={styles.cardHeader}>
           <Text style={styles.title}>{item.title}</Text>
           <Checkbox
             status={item.completed ? 'checked' : 'unchecked'}
             onPress={() => toggleCompletion(item.id)}
+            color='#66e56b'
           />
         </View>
         <Text style={styles.description}>{item.description}</Text>
-        {item.completed && <Button mode="contained" style={styles.completedButton} disabled>Completed</Button>}
       </Card.Content>
     </Card>
   );
 
   return (
     <ImageBackground source={require('../../assets/images/home.jpg')} style={styles.container}>
-      <FlatList
-        data={quests}
-        keyExtractor={(item) => item.id}
-        renderItem={renderQuest}
-        contentContainerStyle={styles.list}
-      />
+      <ScrollView contentContainerStyle={styles.list}>
+        {quests.map((quest) => renderQuest(quest))}
+      </ScrollView>
     </ImageBackground>
   );
 }
@@ -51,15 +47,21 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'black',
     padding: 10,
+    justifyContent: 'center', // Ensures content is centered in the background
   },
   list: {
     paddingBottom: 20,
   },
-  card: {
+  qCard: {
     marginVertical: 8,
-    borderRadius: 8,
-    backgroundColor: '#ffffff',
-    elevation: 3,
+    backgroundColor: 'rgba(255, 255, 255, 0.18)', // Transparent white background for the card
+    borderRadius: 10, // Rounded corners for the card
+    elevation: 0, // No shadow on the card
+  },
+  cardContainer: {
+    backgroundColor: 'rgba(255, 255, 255, 0.8)', // Slightly more opaque white for content area of the card
+    borderRadius: 10,
+    elevation: 0,
   },
   cardHeader: {
     flexDirection: 'row',
@@ -67,17 +69,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    fontFamily:'sans-serif',
+    fontFamily: 'DynaPuff',
     fontSize: 18,
-    fontWeight: 'bold',
   },
   description: {
-    marginTop: 4,
+    marginTop: 0,
     fontSize: 14,
     color: '#6c757d',
-  },
-  completedButton: {
-    marginTop: 10,
-    backgroundColor: '#28a745',
+    fontFamily: 'DynaPuff',
   },
 });

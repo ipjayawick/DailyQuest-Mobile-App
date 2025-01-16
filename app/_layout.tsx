@@ -25,6 +25,7 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
   const [loaded, error] = useFonts({
     SpaceMono: require('../assets/fonts/Chewy-Regular.ttf'),
+    DynaPuff: require('../assets/fonts/DynaPuff-VariableFont_wdth,wght.ttf'),
     ...FontAwesome.font,
 
   });

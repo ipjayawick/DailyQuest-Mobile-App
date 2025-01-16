@@ -9,34 +9,33 @@ export default function AchievementsScreen() {
     points: 150, // Example total points
     image: 'https://media.istockphoto.com/id/1399395748/photo/cheerful-business-woman-with-glasses-posing-with-her-hands-under-her-face-showing-her-smile.jpg?s=612x612&w=0&k=20&c=EbnuxLE-RJP9a08h2zjfgKUSFqmjGubk0p6zwJHnbrI=', // Example user image URL
     completedQuests: [
-      { title: 'Quest 1', description: 'Completed the first quest.', date: '2025-01-01' },
-      { title: 'Quest 2', description: 'Finished the second quest.', date: '2025-01-03' },
-      { title: 'Quest 3', description: 'Completed the third quest.', date: '2025-01-05' },
+      { title: 'Ethereal Ascent', description: 'Completed the first quest.', date: '2025-01-01' },
+      { title: 'Echoed Triumph', description: 'Finished the second quest.', date: '2025-01-03' },
+      { title: 'Pathfinder\'s Dawn', description: 'Completed the third quest.', date: '2025-01-05' },
     ],
   };
 
   return (
     <View style={styles.container}>
       <ImageBackground source={require('../../assets/images/ach.jpg')} style={styles.container}>
-      {/* Top Section: User Info (Image and Total Points) */}
-      <View style={styles.header}>
-        <Image source={{ uri: user.image }} style={styles.userImage} />
-        <View style={styles.pointsContainer}>
-          <Text style={styles.pointsText}>Total Points: {user.points}</Text>
-        </View>
-      </View>
-
-      {/* Completed Quests List */}
-      <ScrollView style={styles.questsContainer}>
-        {user.completedQuests.map((quest, index) => (
-          <View key={index} style={styles.questCard}>
-            <Text style={styles.questTitle}>{quest.title}</Text>
-            <Text style={styles.questDescription}>{quest.description}</Text>
-            <Text style={styles.questDate}>Completed on: {quest.date}</Text>
+        {/* Top Section: User Info (Image and Total Points) */}
+        <View style={styles.header}>
+          <Image source={{ uri: user.image }} style={styles.userImage} />
+          <View style={styles.pointsContainer}>
+            <Text style={styles.pointsText}>Total Points : {user.points}</Text>
           </View>
-        ))}
-      </ScrollView>
-    </ImageBackground>
+        </View>
+
+        {/* Completed Quests List */}
+        <ScrollView style={styles.questsContainer}>
+          {user.completedQuests.map((quest, index) => (
+            <View key={index} style={styles.questCard}>
+              <Text style={styles.questTitle}>{quest.title}</Text>
+              <Text style={styles.questDate}>Completed on: {quest.date}</Text>
+            </View>
+          ))}
+        </ScrollView>
+      </ImageBackground>
     </View>
   );
 }
@@ -45,18 +44,20 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f0f0f0', // Background color for the page
+    borderRadius: 80,
   },
   header: {
     flexDirection: 'row', // Aligning image and points horizontally
     alignItems: 'center',
     padding: 10,
-    backgroundColor: 'rgba(255, 255, 255, 0.1)', // Slightly transparent white background
+    backgroundColor: 'rgba(255, 255, 255, 0.45)', // Slightly transparent white background
     backfaceVisibility: 'hidden',
-    shadowColor: '#000',
+    // shadowColor: '#000',
     // shadowOpacity: 0.1,
     // shadowRadius: 5,
-    elevation: 5, // Add shadow for iOS and Android
-    borderRadius: 8,
+    // elevation: 5, // Add shadow for iOS and Android
+    borderRadius: 10,
+    margin: 10,
   },
   userImage: {
     width: 60,
@@ -66,30 +67,33 @@ const styles = StyleSheet.create({
   },
   pointsContainer: {
     flex: 1,
-    backgroundColor: 'rgba(255, 255, 255, 0.1)', // Slightly transparent white background
+    backgroundColor: 'rgba(255, 255, 255, 0)', // Slightly transparent white background
     backfaceVisibility: 'hidden',
+
   },
   pointsText: {
     fontSize: 18,
-    fontWeight: 'bold',
     color: '#333', // Text color for points
+    fontFamily: 'DynaPuff',
   },
   questsContainer: {
-    padding: 20,
+    padding: 10,
   },
   questCard: {
-    backgroundColor: '#fff',
+    fontFamily: 'DynaPuff',
     borderRadius: 8,
     padding: 15,
     marginBottom: 15,
-    shadowColor: '#000',
-    shadowOpacity: 0.1,
-    shadowRadius: 5,
-    elevation: 3, // For Android shadow
+    // shadowColor: '#000',
+    // shadowOpacity: 0.1,
+    // shadowRadius: 5,
+    backgroundColor: 'rgba(255, 255, 255, 0.71)', // Slightly transparent white background
+    backfaceVisibility: 'hidden',
+    // elevation: 3, // For Android shadow
   },
   questTitle: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontFamily: 'DynaPuff',
     color: '#333',
   },
   questDescription: {
@@ -100,5 +104,7 @@ const styles = StyleSheet.create({
   questDate: {
     fontSize: 12,
     color: '#888',
+    fontFamily: 'DynaPuff',
+    marginTop: 2,
   },
 });

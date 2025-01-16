@@ -34,8 +34,9 @@ export default function TabLayout() {
           elevation: 5, // Adds shadow effect
         },
         tabBarLabelStyle: {
-          fontWeight: 'bold', // Bold tab text
-          fontSize: 14, // Consistent text size
+          // fontWeight: 'bold', // Bold tab text
+          fontSize: 19, // Consistent text size
+          fontFamily: 'SpaceMono'
         },
         // tabBarItemStyle: {
         //   flexDirection: 'row', // Align icon and text horizontally
