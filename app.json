@@ -4,10 +4,21 @@
     "slug": "DailyQuest",
     "version": "1.0.0",
     "orientation": "portrait",
+<<<<<<< HEAD
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+=======
+    "icon": "./assets/images/a.png",
+    "scheme": "myapp",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/images/a.png",
+      "backgroundColor": "black"
+    },
+>>>>>>> dev
     "ios": {
       "supportsTablet": true
     },
@@ -23,6 +34,7 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
+<<<<<<< HEAD
       "expo-router",
       [
         "expo-splash-screen",
@@ -33,6 +45,9 @@
           "backgroundColor": "#ffffff"
         }
       ]
+=======
+      "expo-router"
+>>>>>>> dev
     ],
     "experiments": {
       "typedRoutes": true
