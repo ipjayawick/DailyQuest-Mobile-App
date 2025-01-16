@@ -7,6 +7,8 @@ An app that offers daily prompts and challenges for personal growth, mindfulness
 - **Mindfulness**: Prompts for reflection and mindfulness practices.
 - **Creativity**: Stimulate creativity through engaging activities.
 - **Balanced Life**: Helps users build healthier habits.
+- **AI-Powered Dynamic Quests**: New quests are suggested based on the user's completed quests, adapting to their progress and interests using artificial intelligence. This ensures personalized growth tailored to each user’s journey.
+
 
 ## Screenshots
 
